@@ -1,0 +1,124 @@
+
+body{
+    background-color: rgb(246, 247, 248);
+    background-image: url('./images/bg-desktop-light.jpg');
+    background-repeat: no-repeat;
+    font-size: 18px;
+}
+
+button{
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+input{
+    border: none;
+    background-color: transparent;
+}
+
+input:active{
+    border: none;
+}
+
+.container{
+    display: block;
+    margin: auto;
+    max-width: 400px;
+
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20vh;
+    margin-bottom: 15px;
+}
+.todo{
+    font-weight: bold;
+    /* TODO:change text to upper case */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+
+.content{
+    margin-top: 40px;
+}
+
+.first-todo{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.other-todo{
+    border-radius: 0px;
+   
+}
+.todo-item{
+    padding: 5px;
+    margin: 2px 0px;
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#todo-item .cancel-btn .cancel-icon{
+    visibility: hidden;
+}
+#todo-item:hover{
+    cursor: pointer;
+}
+
+#todo-item:hover .cancel-btn .cancel-icon{
+    color: hsl(235, 19%, 35%);
+    visibility: visible;
+}
+
+#todo-name{
+        margin: 5px;
+        cursor: pointer;
+}
+
+.input-container{
+    padding: 10px 5px;
+    border-radius: 5px;
+
+}
+
+.input-container-light{
+    background-color: white;
+}
+
+.footer-container-light{
+    display: flex;
+    justify-content: space-between;
+    padding:10px 5px;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.footer-btn{
+    color: hsl(236, 33%, 92%);
+}
+.footer-btn:hover{
+    color: hsl(235, 19%, 35%);
+}
+
+.footer-middle-mobile{
+    display: none;
+}
+
+@media (max-width:375px){
+    .footer-middle-mobile{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 10px;
+        padding: 10px;
+
+    }
+    .footer-middle{
+        display: none;
+    }
+
+}
