@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
   
   <title>Frontend Mentor | Todo app</title>
 
@@ -15,22 +16,86 @@
   </style>
 </head>
 <body>
+  <main>
+      <div class="container">
+        <div class="header-container">
+            <p class="todo">Todo</p>
+            <button id="mode-btn">
+            <img id="mode-icon" src="./images/icon-sun.svg" alt="light-mode" srcset="">
+            </button>
+        </div>
+        <div class="input-container-light input-container">
+          <input type="radio" name="create-radio" id="create-radio">
+          <input type="text" name="create-input" id="create-name" placeholder="Create new Todo" >
+        </div>
+        <div class="content">
+          <div class="input-container-light todo-item first-todo" id="todo-item">
+            <input type="radio" name="todo-radio" id="todo-radio">
+            <p name="todo-input" id="todo-name" >example</p>
+            <button type="button" class="cancel-btn" id="cancel-btn"><img class="cancel-icon" src="./images/icon-cross.svg" alt="cross" srcset="" width="10"></button>
+          </div>
+          <div class="input-container-light todo-item other-todo" id="todo-item">
+            <input type="radio" name="todo-radio" id="todo-radio">
+            <p name="todo-input" id="todo-name" >example</p>
+            <button type="button" class="cancel-btn" id="cancel-btn"><img class="cancel-icon" src="./images/icon-cross.svg" alt="cross" srcset="" width="10"></button>
+          </div>
+          <div class="input-container-light todo-item other-todo" id="todo-item">
+            <input type="radio" name="todo-radio" id="todo-radio">
+            <p name="todo-input" id="todo-name" >example</p>
+            <button type="button" class="cancel-btn" id="cancel-btn"><img class="cancel-icon" src="./images/icon-cross.svg" alt="cross" srcset="" width="10"></button>
+          </div>
+        </div>
+        
+        <div class="footer-container-light">
+          <button type="button" class="footer-btn">3 items left</button>
+  
+          <div class="footer-middle" >
+              <button type="button" style="color:hsl(220, 98%, 61%)">
+                 All
+                </button>
+                <button type="button" class="footer-btn">
+                  Active 
+                </button>
+                <button type="button" class="footer-btn">
+                  Completed
+                </button>
+          </div>
+            
+  
+            <button type="button" class="footer-btn" >
+              Clear Completed
+            </button>
+  
+  
+        </div>
 
-  Todo
+      </div>
 
-  <!-- Add dynamic number --> items left
+      <div class="footer-middle-mobile input-container-light" >
+        <button type="button" style="color:hsl(220, 98%, 61%)">
+           All
+          </button>
+          <button type="button" class="footer-btn">
+            Active 
+          </button>
+          <button type="button" class="footer-btn">
+            Completed
+          </button>
+    </div>
 
-  All
-  Active 
-  Completed
 
-  Clear Completed
 
-  Drag and drop to reorder list
+      <P style="text-align: center;">  
+        Drag and drop to reorder list
+      </P>
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+      <div class="attribution">
+         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+         Coded by <a href="#">Papa Kow Dadson</a>.
+      </div>
+  </main>
+
+
+  
 </body>
 </html>
