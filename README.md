@@ -4,5 +4,5 @@ A daily task task tracker
 ## Technology Used
 
 ```HTML```
-'''CSS'''
-'''Web API'''
+``CSS``
+`Web API`
