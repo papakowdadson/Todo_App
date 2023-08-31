@@ -3,6 +3,6 @@ A daily task task tracker
 
 ## Technology Used
 
-'''HTML'''
+```HTML```
 '''CSS'''
 '''Web API'''
