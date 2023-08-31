@@ -1,8 +1,8 @@
 # Todo_App
-A daily task task tracker 
+### A daily task task tracker 
 
 ## Technology Used
 
-```HTML```
-``CSS``
+`HTML`
+`CSS`
 `Web API`
