@@ -102,6 +102,8 @@ let ul = document.createElement('ul');
     todoContainer.appendChild(iconButton);
     todoContainer.appendChild(message);
     todoContainer.appendChild(cancelButton);
+    todoContainer.draggable=true;
+    todoContainer.addEventListener('dragstart',(e)=>drag(e));
 
 
     console.log('------recentTodo:----',todoContainer)
@@ -210,6 +212,27 @@ function filter(action) {
   }
 }
 
+
+function allowDrop(ev) {
+  ev.preventDefault();
+  // content.style.border='1px solid black'
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  // ev.target.appendChild(document.getElementById(data));
+  content.appendChild(document.getElementById(data));
+
+}
+
+
+
+
 function initialComponent() {
   content = document.querySelector(".content");
   modeButton = document.querySelector("#mode-btn");
@@ -225,6 +248,8 @@ function initialComponent() {
   activeButton.addEventListener("click",()=> filter("active"));
   completedButton.addEventListener("click",()=> filter("completed"));
   createButton.addEventListener('click',()=>createTodo());
+  content.addEventListener('drop',(e)=>drop(e));
+  content.addEventListener('dragover',(e)=>allowDrop(e))
 
   modeIcon.src=isLight?'./images/icon-moon.svg':'./images/icon-sun.svg'
 
