@@ -41,9 +41,33 @@ input:active{
     letter-spacing: 4px;
 }
 
+.submit-icon{
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+/* .icon-btn{
+border: 1px red solid;
+} */
+
+#icon-img{
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+.icon-inactive-icon{
+    border: 1px rgb(8, 8, 8) solid;
+}
+.icon-active-icon{
+    border: 1px aqua solid;    
+    background-color: aqua;
+}
 
 .content{
     margin-top: 40px;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .first-todo{
@@ -105,6 +129,11 @@ input:active{
 
 .footer-middle-mobile{
     display: none;
+}
+
+/* DARKMODE */
+.input-container-dark{
+    background-color: "hsl(237, 14%, 26%)";
 }
 
 @media (max-width:375px){
