@@ -6,8 +6,9 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
+  <script src="./action/index.js"></script>
   
-  <title>Frontend Mentor | Todo app</title>
+  <title>Dadson Papa Kow | Todo app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -24,45 +25,47 @@
             <img id="mode-icon" src="./images/icon-sun.svg" alt="light-mode" srcset="">
             </button>
         </div>
-        <div class="input-container-light input-container">
-          <input type="radio" name="create-radio" id="create-radio">
+        <div id="input-container" class="input-container-light input-container">
+          <button type="button" class="submit-btn" id="submit-btn"><img id="submit-img" class="submit-icon" src="./images/icon-circle.svg" alt="submit" srcset="" ></button>
           <input type="text" name="create-input" id="create-name" placeholder="Create new Todo" >
         </div>
         <div class="content">
-          <div class="input-container-light todo-item first-todo" id="todo-item">
-            <input type="radio" name="todo-radio" id="todo-radio">
+
+          <!-- <div class="input-container-light todo-item first-todo" id="todo-item">
+            <button type="button" class="icon-btn" id="icon-btn"><img id="icon-img" class="icon-active-icon" src="./images/icon-check.svg" alt="icon" srcset="" ></button>
             <p name="todo-input" id="todo-name" >example</p>
             <button type="button" class="cancel-btn" id="cancel-btn"><img class="cancel-icon" src="./images/icon-cross.svg" alt="cross" srcset="" width="10"></button>
           </div>
           <div class="input-container-light todo-item other-todo" id="todo-item">
-            <input type="radio" name="todo-radio" id="todo-radio">
+            <button type="button" class="icon-btn" id="icon-btn"><img id="icon-img" class="icon-active-icon" src="./images/icon-circle.svg" alt="icon" srcset="" ></button>
             <p name="todo-input" id="todo-name" >example</p>
             <button type="button" class="cancel-btn" id="cancel-btn"><img class="cancel-icon" src="./images/icon-cross.svg" alt="cross" srcset="" width="10"></button>
           </div>
           <div class="input-container-light todo-item other-todo" id="todo-item">
-            <input type="radio" name="todo-radio" id="todo-radio">
+            <button type="button" class="icon-btn" id="icon-btn"><img id="icon-img" class="icon-active-icon" src="./images/icon-circle.svg" alt="icon" srcset="" ></button>
             <p name="todo-input" id="todo-name" >example</p>
             <button type="button" class="cancel-btn" id="cancel-btn"><img class="cancel-icon" src="./images/icon-cross.svg" alt="cross" srcset="" width="10"></button>
-          </div>
+          </div> -->
+
         </div>
         
-        <div class="footer-container-light">
-          <button type="button" class="footer-btn">3 items left</button>
+        <div id="footer-container" class="footer-container-light">
+          <button type="button" id="todo-length" class="footer-btn">3 items left</button>
   
           <div class="footer-middle" >
-              <button type="button" style="color:hsl(220, 98%, 61%)">
+              <button type="button" id="all-btn" style="color:hsl(220, 98%, 61%)">
                  All
                 </button>
-                <button type="button" class="footer-btn">
+                <button type="button" id="active-btn" class="footer-btn">
                   Active 
                 </button>
-                <button type="button" class="footer-btn">
+                <button type="button" id="completed-btn" class="footer-btn">
                   Completed
                 </button>
           </div>
             
   
-            <button type="button" class="footer-btn" >
+            <button type="button" id="clear-btn" class="footer-btn" >
               Clear Completed
             </button>
   
@@ -71,7 +74,7 @@
 
       </div>
 
-      <div class="footer-middle-mobile input-container-light" >
+      <div id="footer-middle-container" class="footer-middle-mobile input-container-light" >
         <button type="button" style="color:hsl(220, 98%, 61%)">
            All
           </button>
