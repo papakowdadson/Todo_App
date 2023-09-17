@@ -38,7 +38,7 @@ var content;
 
 
 window.onload = () => {
-  console.log("document loaded");
+  // console.log("document loaded");
   initialComponent();
   new Sortable(content, {
     animation: 150,
@@ -49,7 +49,7 @@ window.onload = () => {
 
 const loadTodos = (todos) => {
   let _Todos=todos
-  console.log('--------------loading Todos------------')
+  // console.log('--------------loading Todos------------')
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
@@ -60,8 +60,8 @@ const loadTodos = (todos) => {
  let ul = document.createElement('ul');
   
  _Todos.forEach((todo, index) => {
-    console.log("todo", todo);
-    console.log("index", index);
+    // console.log("todo", todo);
+    // console.log("index", index);
 
     var todoContainer = document.createElement("div");
     todoContainer.id = "todo-item";
@@ -116,7 +116,7 @@ const loadTodos = (todos) => {
     todoContainer.addEventListener('dragstart',(e)=>drag(e));
 
 
-    console.log('------recentTodo:----',todoContainer)
+    // console.log('------recentTodo:----',todoContainer)
     // ul.appendChild(todoContainer);
       content.appendChild(todoContainer);
 
@@ -124,7 +124,7 @@ const loadTodos = (todos) => {
 }
 
 const changeTheme = () => {
-  console.log('----------------Theme-----------------')
+  // console.log('----------------Theme-----------------')
   let _isLight = !isLight;
   isLight = _isLight;
 
@@ -151,26 +151,26 @@ const changeTheme = () => {
 }
 
 const getCompleted = () => {
-  console.log('-----------------getting completed---------')
+  // console.log('-----------------getting completed---------')
   let _Todos = Todos.filter((todo) => todo.status != "active");
   
   loadTodos(_Todos);
 }
 
 const getActive = () => {
-  console.log('-----------------Getting Active----------')
+  // console.log('-----------------Getting Active----------')
   let _Todos = Todos.filter((todo) => todo.status != "completed");
   loadTodos(_Todos);
 }
 
 const deleteTodo = (id) => {
-  console.log('-------------------deleted---------------')
+  // console.log('-------------------deleted---------------')
   let _Todos = Todos.filter((todo) => id != todo.id);
   Todos = _Todos;
   loadTodos(Todos);
 }
 const completeTodo = (id) => {
-  console.log('--------------------setting to completed--------')
+  // console.log('--------------------setting to completed--------')
   let _Todos = Todos.map((todo) => {
     if (todo.id == id) {
       if(todo.status=='active'){      
@@ -187,10 +187,10 @@ const completeTodo = (id) => {
 }
 
 const createTodo = () => {
-  console.log('-------------creating Todo---------')
+  // console.log('-------------creating Todo---------')
   let _id = indexPosition+1
   let message = document.getElementById('create-name').value;
-  console.log('message;',message)
+  // console.log('message;',message)
   Todos.push({ id:_id, status: "active", task: message });
   loadTodos(Todos);
   document.getElementById('create-name').value ='';
@@ -198,7 +198,7 @@ const createTodo = () => {
 }
 
 const clearCompletedTodos = () => {
-  console.log('---------clearing completed Todo------------')
+  // console.log('---------clearing completed Todo------------')
   Todos = Todos.filter((todo)=>todo.status!='completed');
   loadTodos(Todos);
 }
@@ -276,11 +276,11 @@ const initialComponent = () => {
 
   modeIcon.src=isLight?'./images/icon-moon.svg':'./images/icon-sun.svg'
 
-  console.log('--------------initiation----------------')
-  console.log('content',content);
-  console.log('modeButton',modeButton);
-  console.log('allButton',allButton);
-  console.log('clearButton',clearButton);
-  console.log('active',activeButton);
-  console.log('completedButton',completedButton)
+  // console.log('--------------initiation----------------')
+  // console.log('content',content);
+  // console.log('modeButton',modeButton);
+  // console.log('allButton',allButton);
+  // console.log('clearButton',clearButton);
+  // console.log('active',activeButton);
+  // console.log('completedButton',completedButton)
 }
