@@ -25,10 +25,10 @@ let indexPosition = Todos.length - 1;
 let isLight = true;
 var modeButton;
 var modeIcon;
-var allButton=document.querySelector("#all-btn");
+var allButton;
 var clearButton;
-var activeButton=document.querySelector("#active-btn");
-var completedButton=document.querySelector("#completed-btn");
+var activeButton;
+var completedButton;
 var createButton;
 var content;
 
@@ -40,6 +40,10 @@ var content;
 window.onload = () => {
   console.log("document loaded");
   initialComponent();
+  new Sortable(content, {
+    animation: 150,
+    ghostClass: 'blue-background-class',
+  });
   loadTodos(Todos);
 };
 
