@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
 body{
+    font-family: 'Josefin Sans', sans-serif;
     background-color: rgb(246, 247, 248);
     background-image: url('./images/bg-desktop-light.jpg');
     background-repeat: no-repeat;
@@ -12,13 +14,22 @@ button{
     cursor: pointer;
 }
 
+.Active{
+    color:hsl(220, 98%, 61%);
+}
+
 input{
     border: none;
     background-color: transparent;
+    outline: none;
+    width: 80%;
 }
 
 input:active{
     border: none;
+}
+#create-name{
+    margin: 10px 0px;
 }
 
 .container{
@@ -31,19 +42,21 @@ input:active{
 .header-container{
     display: flex;
     justify-content: space-between;
-    margin-top: 20vh;
+    margin-top: 10vh;
     margin-bottom: 15px;
 }
 .todo{
     font-weight: bold;
-    /* TODO:change text to upper case */
     text-transform: uppercase;
     letter-spacing: 4px;
+    color: white;
+    font-size: xx-large;
 }
 
 .submit-icon{
-    width: 15px;
-    height: 15px;
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
 }
 
@@ -52,15 +65,15 @@ border: 1px red solid;
 } */
 
 #icon-img{
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     border-radius: 50px;
 }
-.icon-inactive-icon{
-    border: 1px rgb(8, 8, 8) solid;
+.icon-inactive-icon:hover{
+    border: 1px hsl(235, 19%, 35%) solid;
 }
 .icon-active-icon{
-    border: 1px aqua solid;    
+    /* border: 1px aqua solid;     */
     background-color: aqua;
 }
 
@@ -82,7 +95,7 @@ border: 1px red solid;
     padding: 5px;
     margin: 2px 0px;
     display: grid;
-    grid-template-columns: 20px 1fr 20px;
+    grid-template-columns: 30px 1fr 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #todo-item .cancel-btn .cancel-icon{
@@ -100,6 +113,7 @@ border: 1px red solid;
 #todo-name{
         margin: 5px;
         cursor: pointer;
+        padding: 10px 0px;
 }
 
 .input-container{
@@ -133,7 +147,7 @@ border: 1px red solid;
 
 /* DARKMODE */
 .input-container-dark{
-    background-color: "hsl(237, 14%, 26%)";
+    background-color: hsl(237, 14%, 26%);
 }
 
 @media (max-width:375px){

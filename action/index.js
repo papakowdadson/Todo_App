@@ -25,12 +25,14 @@ let indexPosition = Todos.length - 1;
 let isLight = true;
 var modeButton;
 var modeIcon;
-var allButton;
+var allButton=document.querySelector("#all-btn");
 var clearButton;
-var activeButton;
-var completedButton;
+var activeButton=document.querySelector("#active-btn");
+var completedButton=document.querySelector("#completed-btn");
 var createButton;
 var content;
+
+
 
 
 
@@ -38,21 +40,22 @@ var content;
 window.onload = () => {
   console.log("document loaded");
   initialComponent();
-  loadTodos();
+  loadTodos(Todos);
 };
 
-function loadTodos() {
+const loadTodos = (todos) => {
+  let _Todos=todos
   console.log('--------------loading Todos------------')
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
 
-document.querySelector('#todo-length').innerHTML=`${Todos.length} items left`;
+ document.querySelector('#todo-length').innerHTML=`${Todos.filter((todo)=>todo.status=='active').length} items left`;
 
 
-let ul = document.createElement('ul');
+ let ul = document.createElement('ul');
   
- Todos.forEach((todo, index) => {
+ _Todos.forEach((todo, index) => {
     console.log("todo", todo);
     console.log("index", index);
 
@@ -83,12 +86,15 @@ let ul = document.createElement('ul');
     }`;
     iconImage.src = `${
       todo.status == "completed"
-        ? "../images/icon-check.svg"
-        : "../images/icon-circle.svg"
+        ? "./images/icon-check.svg"
+        : "./images/icon-circle.svg"
     }`;
 
     message.style.textDecoration = `${
       todo.status == "completed" ? "line-through" : ""
+    }`;
+    message.style.color = `${
+      todo.status == "completed" ? "hsl(235, 19%, 35%)" : "black"
     }`;
     message.innerHTML = todo.task;
 
@@ -113,13 +119,13 @@ let ul = document.createElement('ul');
   });
 }
 
-function changeTheme() {
+const changeTheme = () => {
   console.log('----------------Theme-----------------')
   let _isLight = !isLight;
   isLight = _isLight;
 
   document.body.style.backgroundColor = `${
-    isLight ? "white" : "hsl(237, 14%, 26%)"
+    isLight ? "white" : "hsl(235, 21%, 11%)"
   }`;
   document.getElementById('input-container').style.backgroundColor = `${
     isLight ? "white" : "hsl(237, 14%, 26%)"
@@ -136,75 +142,88 @@ function changeTheme() {
   modeIcon.src=isLight?'./images/icon-moon.svg':'./images/icon-sun.svg'
 
 
-  loadTodos()
+  loadTodos(Todos)
 
 }
 
-function getCompleted() {
+const getCompleted = () => {
   console.log('-----------------getting completed---------')
   let _Todos = Todos.filter((todo) => todo.status != "active");
-  Todos = _Todos;
-  loadTodos();
+  
+  loadTodos(_Todos);
 }
 
-function getActive() {
+const getActive = () => {
   console.log('-----------------Getting Active----------')
   let _Todos = Todos.filter((todo) => todo.status != "completed");
-  Todos = _Todos;
-  loadTodos();
+  loadTodos(_Todos);
 }
 
-function deleteTodo(id) {
+const deleteTodo = (id) => {
   console.log('-------------------deleted---------------')
   let _Todos = Todos.filter((todo) => id != todo.id);
   Todos = _Todos;
-  loadTodos();
+  loadTodos(Todos);
 }
-function completeTodo(id) {
+const completeTodo = (id) => {
   console.log('--------------------setting to completed--------')
   let _Todos = Todos.map((todo) => {
     if (todo.id == id) {
-      return { ...todo, status: "completed" };
+      if(todo.status=='active'){      
+        return { ...todo, status: "completed" };
+        }
+      else{
+        return { ...todo, status: "active" };
+      }
     }
     return todo;
   });
   Todos = _Todos;
-  loadTodos();
+  loadTodos(Todos);
 }
 
-function createTodo() {
+const createTodo = () => {
   console.log('-------------creating Todo---------')
   let _id = indexPosition+1
   let message = document.getElementById('create-name').value;
   console.log('message;',message)
   Todos.push({ id:_id, status: "active", task: message });
-  loadTodos();
+  loadTodos(Todos);
   document.getElementById('create-name').value ='';
   indexPosition=Todos.length-1
 }
 
-function clearTodos() {
-  console.log('---------clearing Todo------------')
-  Todos = [];
-  loadTodos();
+const clearCompletedTodos = () => {
+  console.log('---------clearing completed Todo------------')
+  Todos = Todos.filter((todo)=>todo.status!='completed');
+  loadTodos(Todos);
 }
 
-function filter(action) {
+const filter=(action)=> {
   switch (action) {
     case "active":
+      allButton.classList.remove('Active');
+      activeButton.classList.add('Active');
+      completedButton.classList.remove('Active');
       getActive();
       break;
 
     case "completed":
+      allButton.classList.remove('Active');
+      activeButton.classList.remove('Active');
+      completedButton.classList.add('Active');
       getCompleted();
       break;
 
     case "clear":
-      clearTodos();
+      clearCompletedTodos();
       break;
 
     case "all":
-      loadTodos();
+      allButton.classList.add('Active');
+      activeButton.classList.remove('Active');
+      completedButton.classList.remove('Active');
+      loadTodos(Todos);
       break;
 
     default:
@@ -213,16 +232,16 @@ function filter(action) {
 }
 
 
-function allowDrop(ev) {
+const allowDrop = (ev) => {
   ev.preventDefault();
   // content.style.border='1px solid black'
 }
 
-function drag(ev) {
+const drag = (ev) => {
   ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
+const drop = (ev) => {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
   // ev.target.appendChild(document.getElementById(data));
@@ -233,7 +252,7 @@ function drop(ev) {
 
 
 
-function initialComponent() {
+const initialComponent = () => {
   content = document.querySelector(".content");
   modeButton = document.querySelector("#mode-btn");
   modeIcon = document.querySelector('#mode-icon');
